@@ -1,170 +1,115 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2487.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Georgia; color: #878787; -webkit-text-stroke: #878787}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Georgia; color: #878787; -webkit-text-stroke: #878787; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleWell Interior Design</title>
+    <style>
+        /* This section makes the website spread across the page */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { font-family: 'Helvetica', sans-serif; overflow-x: hidden; }
+
+        /* Navigation spreading across the top */
+        header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 20px 5%; 
+            width: 100%;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; text-decoration: none; color: #000; }
+
+        nav a { margin-left: 25px; text-decoration: none; color: #333; text-transform: uppercase; font-size: 12px; }
+
+        /* Hero Section - Full Width */
+        .hero {
+            width: 100%;
+            height: 80vh;
+            background: #f4f4f4 url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1974') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-text h1 { font-size: 60px; color: white; text-transform: uppercase; letter-spacing: 5px; background: rgba(0,0,0,0.3); padding: 20px 40px; }
+
+        /* Content Sections spreading edge-to-edge */
+        .full-width-section {
+            width: 100%;
+            padding: 80px 5%;
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .text-block { flex: 1; }
+        .image-block { flex: 1; }
+        .image-block img { width: 100%; height: auto; border-radius: 4px; }
+
+        /* Professional Footer with Contact Info */
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 60px 5%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-box { flex: 1; min-width: 250px; margin-bottom: 30px; }
+        .footer-box h4 { margin-bottom: 20px; text-transform: uppercase; color: #aaa; }
+        
+    </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;StyleWell | Bespoke Interior Design&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* CSS RESET &amp; BASE */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>* { margin: 0; padding: 0; box-sizing: border-box; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body { font-family: 'Georgia', serif; color: #333; line-height: 1.6; scroll-behavior: smooth; overflow-x: hidden; }</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* NAVIGATION - Spread across the top */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>header {<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #fff;<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 20px 5%;<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: space-between;<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #eee;<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: fixed;<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>top: 0;<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>z-index: 1000;<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.logo { font-size: 26px; font-weight: bold; letter-spacing: 4px; text-decoration: none; color: #1a1a1a; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>nav a { margin-left: 35px; text-decoration: none; color: #555; text-transform: uppercase; font-size: 11px; font-weight: bold; letter-spacing: 1px; transition: 0.3s; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>nav a:hover { color: #000; }</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* HERO SECTION - Full screen height */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.hero {<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100vh;<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;q=80&amp;w=1974') center/cover;<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0 5%;<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: white;<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.hero-content { max-width: 800px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.hero-content h1 { font-size: 72px; text-transform: uppercase; letter-spacing: 8px; margin-bottom: 10px; line-height: 1; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.hero-content p { font-size: 20px; font-style: italic; margin-bottom: 30px; }</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* SECTION STYLING - Spread edge-to-edge */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>section { width: 100%; padding: 100px 5%; min-height: 60vh; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.section-title { font-size: 32px; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 50px; text-align: left; border-bottom: 1px solid #eee; padding-bottom: 15px; }</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* PROJECTS GRID - Spread across the screen */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.project-item { height: 600px; background-size: cover; background-position: center; position: relative; display: flex; align-items: flex-end; padding: 40px; color: white; text-decoration: none; transition: 0.4s; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.project-item:hover { filter: brightness(1.1); transform: scale(0.99); }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.project-item h3 { font-size: 24px; text-transform: uppercase; letter-spacing: 2px; }</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* ABOUT SECTION */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#about { background-color: #f9f9f9; display: flex; align-items: center; gap: 50px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.about-text { flex: 1; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.about-image { flex: 1; height: 500px; background: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&amp;fit=crop&amp;q=80&amp;w=1000') center/cover; }</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* CONTACT SECTION */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#contact { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; background: #fff; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.form-area input, .form-area textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; font-family: 'Arial', sans-serif; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.btn-send { background: #1a1a1a; color: #fff; padding: 15px 45px; border: none; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.btn-send:hover { background: #444; }</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* FOOTER - Wide and Dark */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>footer { background: #111; color: #fff; padding: 80px 5%; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>footer h4 { text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; color: #888; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>footer p, footer a { color: #ccc; text-decoration: none; margin-bottom: 10px; display: block; font-size: 14px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.copyright { grid-column: 1 / span 3; border-top: 1px solid #222; margin-top: 40px; padding-top: 20px; font-size: 11px; color: #555; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;header&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;a href="#" class="logo"&gt;STYLEWELL&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;nav&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#home"&gt;Home&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#projects"&gt;Portfolio&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#about"&gt;About&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#contact"&gt;Contact&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/header&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;section id="home" class="hero" style="padding-top: 0;"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="hero-content"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Livable Luxury.&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Bespoke interiors designed for the modern lifestyle.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#contact" class="btn-send" style="text-decoration: none;"&gt;Inquire Now&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;section id="projects"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2 class="section-title"&gt;Portfolio&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="project-grid"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="project-item" style="background-image: url('https://images.unsplash.com/photo-1600607687940-4676d28c19c4?auto=format&amp;fit=crop&amp;q=80&amp;w=1000');"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h3&gt;The Urban Sanctuary&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="project-item" style="background-image: url('https://images.unsplash.com/photo-1600566753190-17f0bb2a6c3e?auto=format&amp;fit=crop&amp;q=80&amp;w=1000');"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Minimalist Retreat&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;section id="about"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="about-text"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2 class="section-title"&gt;Philosophy&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;At StyleWell, we believe that your environment dictates your energy. We specialize in creating high-end interiors that prioritize balance, light, and functional elegance.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p style="margin-top: 20px;"&gt;Our mission is to design spaces that feel curated yet deeply personal, ensuring every corner of your home is a reflection of your refined taste.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="about-image"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;section id="contact"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2 class="section-title"&gt;Consultations&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Ready to transform your space? Our lead designers are currently accepting new commissions for 2026.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p style="margin-top: 20px;"&gt;&lt;strong&gt;Email:&lt;/strong&gt; info@stylewellinterior.com&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Phone:&lt;/strong&gt; +1 (555) 123-4567&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="form-area"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;form action="https://formspree.io/f/xaqqldlv" method="POST"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input type="hidden" name="_next" value="https://noyonika0805.github.io/stylewell/thank-you.html"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input type="text" name="name" placeholder="Full Name" required&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input type="email" name="email" placeholder="Email Address" required&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;textarea name="message" rows="6" placeholder="Project Details" required&gt;&lt;/textarea&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button type="submit" class="btn-send"&gt;Send Request&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/form&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;footer&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="logo" style="color: #fff; margin-bottom: 20px;"&gt;STYLEWELL&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Leading the industry in bespoke residential design.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h4&gt;Navigation&lt;/h4&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#home"&gt;Home&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#projects"&gt;Portfolio&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#about"&gt;About&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#contact"&gt;Contact&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h4&gt;Connect&lt;/h4&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#"&gt;Instagram&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#"&gt;LinkedIn&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#"&gt;Pinterest&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="copyright"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&amp;copy; 2026 StyleWell Interior Design. All rights reserved.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/footer&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+
+<header>
+    <a href="#" class="logo">STYLEWELL</a>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#projects">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <div class="hero-text">
+        <h1>Livable Luxury</h1>
+    </div>
+</section>
+
+<section id="projects" class="full-width-section">
+    <div class="text-block">
+        <h2>Our Projects</h2>
+        <p>Bespoke interiors designed for modern living. We take historic spaces and breathe new life into them.</p>
+    </div>
+    <div class="image-block">
+        <img src="https://images.unsplash.com/photo-1600607687940-4676d28c19c4?auto=format&fit=crop&q=80&w=1000" alt="Interior">
+    </div>
+</section>
+
+<footer id="contact">
+    <div class="footer-box">
+        <h3>STYLEWELL</h3>
+        <p>Curating beauty in every corner.</p>
+    </div>
+    <div class="footer-box">
+        <h4>Contact Us</h4>
+        <p>Email: info@stylewellinterior.com</p>
+        <p>Phone: +1 (555) 123-4567</p>
+    </div>
+    <div class="footer-box">
+        <h4>Inquire</h4>
+        <form action="https://formspree.io/f/xaqqldlv" method="POST">
+            <input type="email" name="email" placeholder="Your Email" style="padding: 10px; width: 80%;">
+            <button type="submit" style="padding: 10px; background: #fff; border: none; cursor: pointer;">Send</button>
+        </form>
+    </div>
+</footer>
+
 </body>
 </html>
