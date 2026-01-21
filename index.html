@@ -4,11 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StyleWell Interior Design</title>
     <style>
-        /* Global Setup */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Georgia', serif; color: #333; line-height: 1.6; background: #fff; }
 
-        /* Full-Width Header */
         header { 
             display: flex; 
             justify-content: space-between; 
@@ -24,67 +22,32 @@
         .logo { font-size: 26px; font-weight: bold; letter-spacing: 4px; text-decoration: none; color: #000; cursor: pointer; }
         
         nav button { 
-            background: none; 
-            border: none; 
-            margin-left: 30px; 
-            color: #666; 
-            text-transform: uppercase; 
-            font-size: 13px; 
-            letter-spacing: 2px; 
-            cursor: pointer;
-            font-family: inherit;
-            transition: 0.3s;
+            background: none; border: none; margin-left: 30px; 
+            color: #666; text-transform: uppercase; font-size: 13px; 
+            letter-spacing: 2px; cursor: pointer; font-family: inherit;
         }
         nav button:hover { color: #000; border-bottom: 1px solid #000; }
 
-        /* Page Switching Logic */
-        .page { display: none; width: 100%; min-height: 80vh; animation: fadeIn 0.4s ease-in-out; }
-        .active { display: block; } 
+        /* The Page Switching Logic */
+        .page { display: none; width: 100%; min-height: 80vh; padding: 100px 5%; }
+        .active { display: block; } /* This makes the current page visible */
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Home/Hero View */
         .hero {
-            height: 85vh;
+            height: 80vh;
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1974') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
+            display: flex; align-items: center; justify-content: center; color: white; text-align: center;
+            margin: -100px -5% 0 -5%; /* Offsets the page padding for full-screen look */
         }
         .hero h1 { font-size: clamp(40px, 8vw, 80px); text-transform: uppercase; letter-spacing: 12px; }
 
-        /* Section Layouts */
-        .content-area { padding: 80px 5%; width: 100%; }
-        h2 { font-size: 36px; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 40px; }
-
-        /* Portfolio Grid */
         .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .portfolio-item { height: 500px; background-size: cover; background-position: center; border-radius: 2px; }
+        .portfolio-item { height: 500px; background-size: cover; background-position: center; }
 
-        /* Contact Form Styling */
-        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; text-transform: uppercase; font-size: 11px; letter-spacing: 1px; margin-bottom: 8px; color: #888; }
-        input, textarea { width: 100%; padding: 15px; border: 1px solid #ddd; font-family: 'Arial', sans-serif; font-size: 14px; }
-        .btn-submit { background: #1a1a1a; color: #fff; padding: 18px 50px; border: none; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s; }
-        .btn-submit:hover { background: #444; }
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; font-family: sans-serif; }
+        .btn-submit { background: #1a1a1a; color: #fff; padding: 18px 50px; border: none; text-transform: uppercase; cursor: pointer; }
 
-        /* Footer */
-        footer { 
-            background: #111; 
-            color: #fff; 
-            padding: 80px 5%; 
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
-        }
-        .footer-logo { font-size: 20px; letter-spacing: 3px; margin-bottom: 20px; }
-        .footer-info p { color: #999; font-size: 14px; margin-bottom: 10px; }
+        footer { background: #111; color: #fff; padding: 60px 5%; display: flex; justify-content: space-between; align-items: center; }
     </style>
 </head>
 <body>
@@ -103,11 +66,59 @@
     <section class="hero">
         <h1>Livable Luxury.</h1>
     </section>
-    <div class="content-area" style="text-align: center;">
-        <p style="font-size: 22px; max-width: 900px; margin: 0 auto; color: #555;">Bespoke interiors designed for the modern lifestyle. We turn vision into reality with precision and elegance.</p>
-    </div>
 </div>
 
 <div id="portfolio" class="page">
-    <div class="content-area">
-        <h2>
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid">
+        <div class="portfolio-item" style="background-image: url('https://images.unsplash.com/photo-1600607687940-4676d28c19c4?auto=format&fit=crop&q=80&w=1000');"></div>
+        <div class="portfolio-item" style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000');"></div>
+    </div>
+</div>
+
+<div id="about" class="page">
+    <h2>About Us</h2>
+    <p style="font-size: 20px; max-width: 800px;">StyleWell is an interior design firm focused on high-end residential transformations. We believe in the balance of elegance and function.</p>
+</div>
+
+<div id="contact" class="page">
+    <div class="contact-container">
+        <div>
+            <h2>Inquire</h2>
+            <p>Speak with our design team about your upcoming project.</p>
+            <p style="margin-top: 20px;"><strong>Phone:</strong> +1 (555) 123-4567</p>
+            <p><strong>Email:</strong> info@stylewellinterior.com</p>
+        </div>
+        <form action="https://formspree.io/f/xaqqldlv" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Phone Number">
+            <textarea name="message" rows="5" placeholder="Project Details" required></textarea>
+            <button type="submit" class="btn-submit">Submit Request</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <div>STYLEWELL &copy; 2026</div>
+    <div>+1 (555) 123-4567</div>
+</footer>
+
+<script>
+    function showPage(pageId) {
+        // 1. Hide every page
+        var pages = document.getElementsByClassName('page');
+        for (var i = 0; i < pages.length; i++) {
+            pages[i].style.display = 'none';
+        }
+        
+        // 2. Show only the page we clicked
+        document.getElementById(pageId).style.display = 'block';
+        
+        // 3. Scroll to the top of the window
+        window.scrollTo(0, 0);
+    }
+</script>
+
+</body>
+</html>
