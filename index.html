@@ -70,17 +70,29 @@
         .project-overlay p { font-size: 16px; max-width: 90%; }
         .project-stats { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); padding: 10px 15px; border-radius: 20px; font-size: 12px; backdrop-filter: blur(10px); }
 
-        /* SERVICES WITH IMAGES */
+        /* SERVICES - FIXED IMAGES + VISIBLE */
         .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         .service-item { 
             position: relative; height: 500px; overflow: hidden; border-radius: 12px; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.4s ease; cursor: pointer;
-            background: #f9f9f9;
         }
-        .service-item:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.2); }
-        .service-img { width: 100%; height: 60%; object-fit: cover; }
-        .service-content { padding: 30px; text-align: center; height: 40%; display: flex; flex-direction: column; justify-content: center; }
-        .service-item h3 { font-size: 22px; margin-bottom: 15px; color: #000; }
+        .service-item:hover { transform: translateY(-10px) rotateX(5deg); box-shadow: 0 25px 50px rgba(0,0,0,0.2); }
+        .service-img { 
+            width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; 
+            filter: grayscale(20%) brightness(1.1);
+        }
+        .service-item:hover .service-img { 
+            transform: scale(1.05); filter: grayscale(0%) brightness(1.2);
+        }
+        .service-overlay {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+            color: white; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            opacity: 0; transition: all 0.4s ease; padding: 40px; text-align: center;
+        }
+        .service-item:hover .service-overlay { opacity: 1; }
+        .service-overlay h3 { font-size: 28px; margin-bottom: 15px; letter-spacing: 2px; }
+        .service-overlay p { font-size: 16px; max-width: 90%; }
 
         /* ABOUT */
         .about-content { max-width: 900px; margin: 0 auto; text-align: center; }
@@ -90,7 +102,7 @@
         .contact-flex { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
         input, textarea, select { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; outline: none; border-radius: 4px; }
         .btn-black { background: #000; color: #fff; padding: 18px 40px; border: none; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; width: 100%; border-radius: 4px; font-family: inherit; font-size: 14px; transition: 0.3s; }
-        .btn-black:hover { background: #333; }
+        .btn-black:hover { background: #333; transform: scale(1.02); }
 
         /* SOCIAL FOOTER - Icons Removed */
         footer { background: #000; color: #fff; padding: 40px 8%; text-align: center; font-size: 14px; letter-spacing: 1px; }
@@ -104,6 +116,9 @@
             .hero h1 { letter-spacing: 4px; }
             .portfolio-grid, .service-grid { grid-template-columns: 1fr; }
         }
+
+        /* PARALLAX SCROLL */
+        .parallax { background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; }
     </style>
 </head>
 <body>
@@ -147,7 +162,7 @@
     </div>
 </div>
 
-<!-- PORTFOLIO - New Images & Enhanced Interactivity -->
+<!-- PORTFOLIO -->
 <div id="portfolio" class="page">
     <div class="content-area">
         <h2>Selected Works</h2>
@@ -194,35 +209,35 @@
     </div>
 </div>
 
-<!-- SERVICES - New Images -->
+<!-- SERVICES - NEW VISIBLE IMAGES -->
 <div id="services" class="page">
     <div class="content-area">
         <h2>Our Services</h2>
         <div class="service-grid">
             <div class="service-item">
-                <img class="service-img" src="https://images.unsplash.com/photo-1600607687940-4676d28c19c4?auto=format&fit=crop&q=80&w=800" alt="Residential">
-                <div class="service-content">
+                <img class="service-img" src="https://images.unsplash.com/photo-1556911220-b563a55eb8e5?auto=format&fit=crop&q=80&w=1000" alt="Residential Design">
+                <div class="service-overlay">
                     <h3>Residential Design</h3>
                     <p>Curated living spaces that reflect your unique narrative and lifestyle needs.</p>
                 </div>
             </div>
             <div class="service-item">
-                <img class="service-img" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800" alt="Commercial">
-                <div class="service-content">
+                <img class="service-img" src="https://images.unsplash.com/photo-1602953685678-f81f4e6d6693?auto=format&fit=crop&q=80&w=1000" alt="Commercial Spaces">
+                <div class="service-overlay">
                     <h3>Commercial Spaces</h3>
                     <p>Innovative designs for cafes, restaurants, retail, and office environments.</p>
                 </div>
             </div>
             <div class="service-item">
-                <img class="service-img" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800" alt="Restoration">
-                <div class="service-content">
+                <img class="service-img" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=1000" alt="Heritage Restoration">
+                <div class="service-overlay">
                     <h3>Heritage Restoration</h3>
                     <p>Breathing new life into historic structures with modern elegance.</p>
                 </div>
             </div>
             <div class="service-item">
-                <img class="service-img" src="https://images.unsplash.com/photo-1558603839-7b3d71d6b8e9?auto=format&fit=crop&q=80&w=800" alt="Visualization">
-                <div class="service-content">
+                <img class="service-img" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=1000" alt="3D Visualization">
+                <div class="service-overlay">
                     <h3>3D Visualization</h3>
                     <p>Photorealistic renders and walkthroughs for precise project planning.</p>
                 </div>
@@ -298,11 +313,40 @@
             if (category === 'all' || card.dataset.category === category) {
                 card.style.transform = 'translateY(0) scale(1)';
                 card.style.display = 'block';
+                card.style.animation = 'fadeIn 0.5s ease';
             } else {
                 card.style.display = 'none';
             }
         });
     }
+
+    // Mouse Follow Effect for Header
+    document.addEventListener('mousemove', (e) => {
+        const navButtons = document.querySelectorAll('nav button');
+        navButtons.forEach((btn, index) => {
+            const rect = btn.getBoundingClientRect();
+            const distance = Math.hypot(e.clientX - rect.left - rect.width/2, e.clientY - rect.top - rect.height/2);
+            const scale = Math.max(0.9, 1 - distance / 200);
+            btn.style.transform = `scale(${scale})`;
+        });
+    });
+
+    // Intersection Observer for Scroll Animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    });
+
+    document.querySelectorAll('.project-card, .service-item, .testimonial').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(50px)';
+        el.style.transition = 'all 0.6s ease';
+        observer.observe(el);
+    });
 </script>
 
 </body>
