@@ -2,52 +2,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StyleWell Interior Design</title>
+    <title>StyleWell | Bespoke Interior Design</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Georgia', serif; color: #333; line-height: 1.6; background: #fff; }
+        body { font-family: 'Georgia', serif; color: #333; line-height: 1.8; background: #fff; }
 
         header { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 30px 5%; 
-            width: 100%;
-            border-bottom: 1px solid #eee;
-            background: #fff;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 25px 5%; width: 100%; border-bottom: 1px solid #eee;
+            background: #fff; position: sticky; top: 0; z-index: 1000;
         }
-        .logo { font-size: 26px; font-weight: bold; letter-spacing: 4px; text-decoration: none; color: #000; cursor: pointer; }
+        .logo { font-size: 24px; font-weight: bold; letter-spacing: 4px; text-decoration: none; color: #000; cursor: pointer; }
         
         nav button { 
-            background: none; border: none; margin-left: 30px; 
-            color: #666; text-transform: uppercase; font-size: 13px; 
-            letter-spacing: 2px; cursor: pointer; font-family: inherit;
+            background: none; border: none; margin-left: 25px; 
+            color: #777; text-transform: uppercase; font-size: 12px; 
+            letter-spacing: 2px; cursor: pointer; font-family: inherit; transition: 0.3s;
         }
-        nav button:hover { color: #000; border-bottom: 1px solid #000; }
+        nav button:hover { color: #000; }
 
-        /* The Page Switching Logic */
-        .page { display: none; width: 100%; min-height: 80vh; padding: 100px 5%; }
-        .active { display: block; } /* This makes the current page visible */
+        .page { display: none; width: 100%; min-height: 80vh; animation: fadeIn 0.4s ease; }
+        .active { display: block; } 
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .content-area { padding: 100px 8%; width: 100%; }
+        h2 { font-size: 32px; text-transform: uppercase; letter-spacing: 6px; margin-bottom: 40px; text-align: center; }
 
         .hero {
-            height: 80vh;
+            height: 85vh;
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1974') center/cover;
-            display: flex; align-items: center; justify-content: center; color: white; text-align: center;
-            margin: -100px -5% 0 -5%; /* Offsets the page padding for full-screen look */
+            display: flex; align-items: center; justify-content: center; color: white;
         }
-        .hero h1 { font-size: clamp(40px, 8vw, 80px); text-transform: uppercase; letter-spacing: 12px; }
+        .hero h1 { font-size: clamp(40px, 8vw, 70px); text-transform: uppercase; letter-spacing: 12px; text-align: center; }
 
-        .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .portfolio-item { height: 500px; background-size: cover; background-position: center; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; }
+        .portfolio-card { position: relative; height: 500px; overflow: hidden; }
+        .portfolio-card img { width: 100%; height: 100%; object-fit: cover; }
+        .portfolio-label { position: absolute; bottom: 20px; left: 20px; color: white; background: rgba(0,0,0,0.6); padding: 5px 15px; text-transform: uppercase; font-size: 11px; letter-spacing: 1px; }
+
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 50px; }
+        .step { text-align: center; padding: 20px; }
+        .step-num { font-size: 14px; color: #999; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 15px; }
 
         .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
         input, textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; font-family: sans-serif; }
-        .btn-submit { background: #1a1a1a; color: #fff; padding: 18px 50px; border: none; text-transform: uppercase; cursor: pointer; }
+        .btn-submit { background: #1a1a1a; color: #fff; padding: 18px 50px; border: none; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; }
 
-        footer { background: #111; color: #fff; padding: 60px 5%; display: flex; justify-content: space-between; align-items: center; }
+        footer { background: #111; color: #fff; padding: 60px 8%; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
     </style>
 </head>
 <body>
@@ -57,6 +59,7 @@
     <nav>
         <button onclick="showPage('home')">Home</button>
         <button onclick="showPage('portfolio')">Portfolio</button>
+        <button onclick="showPage('process')">Process</button>
         <button onclick="showPage('about')">About</button>
         <button onclick="showPage('contact')">Contact</button>
     </nav>
@@ -69,53 +72,97 @@
 </div>
 
 <div id="portfolio" class="page">
-    <h2>Portfolio</h2>
-    <div class="portfolio-grid">
-        <div class="portfolio-item" style="background-image: url('https://images.unsplash.com/photo-1600607687940-4676d28c19c4?auto=format&fit=crop&q=80&w=1000');"></div>
-        <div class="portfolio-item" style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000');"></div>
+    <div class="content-area">
+        <h2>Selected Works</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1600607687940-4676d28c19c4?q=80&w=1000" alt="Residential">
+                <div class="portfolio-label">Residential</div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1000" alt="Restaurant">
+                <div class="portfolio-label">Commercial & Hospitality</div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000" alt="Restoration">
+                <div class="portfolio-label">Historical Restoration</div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1000" alt="Cafe">
+                <div class="portfolio-label">Cafe Design</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="process" class="page">
+    <div class="content-area">
+        <h2>The Design Process</h2>
+        <div class="process-grid">
+            <div class="step">
+                <span class="step-num">01. Discovery</span>
+                <h3>Consultation</h3>
+                <p>A deep dive into your vision, whether it's a private home, a boutique cafe, or a large-scale restaurant concept.</p>
+            </div>
+            <div class="step">
+                <span class="step-num">02. Concept</span>
+                <h3>Curation</h3>
+                <p>Developing mood boards, floor plans, and material palettes that define the soul of the space.</p>
+            </div>
+            <div class="step">
+                <span class="step-num">03. Execution</span>
+                <h3>Management</h3>
+                <p>From architectural restorations to bespoke furniture sourcing, we manage the transformation to the final reveal.</p>
+            </div>
+        </div>
     </div>
 </div>
 
 <div id="about" class="page">
-    <h2>About Us</h2>
-    <p style="font-size: 20px; max-width: 800px;">StyleWell is an interior design firm focused on high-end residential transformations. We believe in the balance of elegance and function.</p>
+    <div class="content-area">
+        <div style="max-width: 850px; margin: 0 auto; text-align: center;">
+            <h2>The Philosophy</h2>
+            <p style="font-size: 22px; margin-bottom: 30px; font-style: italic;">"Environment dictates energy."</p>
+            <p style="margin-bottom: 25px;">StyleWell is a multi-disciplinary design studio specializing in the intersection of luxury and utility. Our expertise spans from high-end residential sanctuaries to immersive commercial environments, including restaurants, cafes, and thoughtful historical restorations.</p>
+            <p>We believe that a space—whether public or private—should be a seamless extension of identity. Our approach balances clean lines with organic textures, ensuring that every project respects the architectural bones of the building while introducing a modern, refined sensibility. From metropolitan lofts to boutique hospitality venues, StyleWell curates spaces that inspire.</p>
+        </div>
+    </div>
 </div>
 
 <div id="contact" class="page">
-    <div class="contact-container">
-        <div>
-            <h2>Inquire</h2>
-            <p>Speak with our design team about your upcoming project.</p>
-            <p style="margin-top: 20px;"><strong>Phone:</strong> +1 (555) 123-4567</p>
-            <p><strong>Email:</strong> info@stylewellinterior.com</p>
+    <div class="content-area">
+        <div class="contact-container">
+            <div>
+                <h2 style="text-align: left;">Inquire</h2>
+                <p>Speak with our design team about your upcoming project.</p>
+                <div style="margin-top: 30px;">
+                    <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                    <p><strong>Email:</strong> info@stylewellinterior.com</p>
+                </div>
+            </div>
+            <form action="https://formspree.io/f/xaqqldlv" method="POST">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="phone" placeholder="Phone Number">
+                <textarea name="message" rows="5" placeholder="Project Details (Residential, Commercial, Restoration, etc.)" required></textarea>
+                <button type="submit" class="btn-submit">Submit Request</button>
+            </form>
         </div>
-        <form action="https://formspree.io/f/xaqqldlv" method="POST">
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="tel" name="phone" placeholder="Phone Number">
-            <textarea name="message" rows="5" placeholder="Project Details" required></textarea>
-            <button type="submit" class="btn-submit">Submit Request</button>
-        </form>
     </div>
 </div>
 
 <footer>
-    <div>STYLEWELL &copy; 2026</div>
-    <div>+1 (555) 123-4567</div>
+    <div>STYLEWELL</div>
+    <div>DESIGNED FOR LIVING.</div>
 </footer>
 
 <script>
     function showPage(pageId) {
-        // 1. Hide every page
         var pages = document.getElementsByClassName('page');
         for (var i = 0; i < pages.length; i++) {
             pages[i].style.display = 'none';
         }
-        
-        // 2. Show only the page we clicked
         document.getElementById(pageId).style.display = 'block';
-        
-        // 3. Scroll to the top of the window
         window.scrollTo(0, 0);
     }
 </script>
