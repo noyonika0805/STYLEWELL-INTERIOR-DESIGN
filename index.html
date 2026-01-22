@@ -25,21 +25,21 @@
         /* PAGE LOGIC */
         .page { display: none; width: 100%; min-height: 85vh; animation: fadeIn 0.5s ease; }
         .active { display: block; } 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* HERO AREA */
+        /* HERO AREA - Restored to "Livable Luxury" */
         .hero {
-            height: 80vh;
+            height: 90vh;
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1974') center/cover;
             display: flex; align-items: center; justify-content: center; color: white;
         }
-        .hero h1 { font-size: clamp(35px, 7vw, 65px); text-transform: uppercase; letter-spacing: 12px; text-align: center; }
+        .hero h1 { font-size: clamp(40px, 8vw, 80px); text-transform: uppercase; letter-spacing: 12px; text-align: center; }
 
         /* PORTFOLIO FILTER */
         .filter-nav { text-align: center; margin-bottom: 40px; }
         .filter-nav button { background: none; border: 1px solid #ddd; padding: 8px 20px; margin: 5px; cursor: pointer; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
         .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px; padding: 0 5%; }
-        .project-card { position: relative; height: 450px; overflow: hidden; background: #f9f9f9; }
+        .project-card { position: relative; height: 500px; overflow: hidden; background: #f9f9f9; }
         .project-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .project-card:hover img { transform: scale(1.03); }
         .label { position: absolute; bottom: 20px; left: 20px; color: white; background: rgba(0,0,0,0.7); padding: 5px 15px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
@@ -76,10 +76,10 @@
 
 <div id="home" class="page active">
     <section class="hero">
-        <h1>Bespoke Interiors.</h1>
+        <h1>Livable Luxury.</h1>
     </section>
     <div class="content-area" style="text-align: center;">
-        <p style="font-size: 20px; max-width: 800px; margin: 0 auto;">From luxury residential sanctuaries in Kolkata to immersive commercial hospitality environments across India.</p>
+        <p style="font-size: 20px; max-width: 800px; margin: 0 auto;">Bespoke interiors designed for the modern lifestyle. From boutique cafes in Kolkata to curated residential restorations.</p>
     </div>
 </div>
 
@@ -93,21 +93,21 @@
             <button onclick="filterProjects('restoration')">Restoration</button>
         </div>
         <div class="portfolio-grid" id="project-gallery">
-            <div class="project-card residential">
-                <img src="https://images.unsplash.com/photo-1600607687940-4676d28c19c4?auto=format&fit=crop&q=80&w=800">
-                <div class="label">Luxury Villa</div>
-            </div>
             <div class="project-card commercial">
-                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800">
-                <div class="label">Modern Cafe</div>
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=1000">
+                <div class="label">Boutique Cafe</div>
+            </div>
+            <div class="project-card residential">
+                <img src="https://images.unsplash.com/photo-1600607687940-4676d28c19c4?auto=format&fit=crop&q=80&w=1000">
+                <div class="label">Modern Apartment</div>
             </div>
             <div class="project-card restoration">
-                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000">
                 <div class="label">Heritage Restoration</div>
             </div>
             <div class="project-card commercial">
-                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=800">
-                <div class="label">Bistro Hospitality</div>
+                <img src="https://images.unsplash.com/photo-1550966842-28c2e2ad4471?auto=format&fit=crop&q=80&w=1000">
+                <div class="label">Signature Restaurant</div>
             </div>
         </div>
     </div>
@@ -115,23 +115,23 @@
 
 <div id="services" class="page">
     <div class="content-area">
-        <h2>Expertise</h2>
+        <h2>Our Services</h2>
         <div class="service-grid">
             <div class="service-item">
-                <h3>Residential Design</h3>
-                <p>Personalized living spaces from concept to final reveal.</p>
+                <h3>Residential</h3>
+                <p>Curated living spaces that reflect your unique narrative.</p>
             </div>
             <div class="service-item">
-                <h3>Commercial Spaces</h3>
-                <p>Strategic designs for cafes, restaurants, and retail boutiques.</p>
-            </div>
-            <div class="service-item">
-                <h3>3D Visualization</h3>
-                <p>High-fidelity renders to help you see the vision before we build.</p>
+                <h3>Commercial</h3>
+                <p>Innovative designs for cafes, restaurants, and retail spaces.</p>
             </div>
             <div class="service-item">
                 <h3>Restoration</h3>
-                <p>Preserving architectural history with modern utility.</p>
+                <p>Breathe new life into historic structures with modern elegance.</p>
+            </div>
+            <div class="service-item">
+                <h3>3D Renders</h3>
+                <p>Photorealistic visualizations for complete project clarity.</p>
             </div>
         </div>
     </div>
@@ -142,7 +142,7 @@
         <h2>The Philosophy</h2>
         <p style="font-size: 20px; margin-bottom: 25px; font-style: italic;">"Environment dictates energy."</p>
         <p style="margin-bottom: 20px;">Based in Kolkata, StyleWell is a multi-disciplinary design studio specializing in the intersection of luxury and utility. Our work is defined by clean lines, organic textures, and a relentless pursuit of balance.</p>
-        <p>We believe that a space—whether a private residence or a public cafe—should be a seamless extension of identity. Our team meticulously curates every texture and floor plan to ensure the end result is a masterpiece of functional elegance.</p>
+        <p>We believe that a space—whether a private residence, a boutique cafe, or a heritage restaurant—should be a seamless extension of identity. Our team meticulously curates every texture and layout to ensure the end result is a masterpiece of functional elegance.</p>
     </div>
 </div>
 
@@ -151,19 +151,18 @@
         <div class="contact-flex">
             <div>
                 <h2 style="text-align: left; margin-bottom: 20px;">Inquire</h2>
-                <p>Let's discuss your upcoming transformation.</p>
+                <p>Contact our Kolkata studio to begin your project.</p>
                 <div style="margin-top: 30px; font-size: 14px;">
-                    <p><strong>Studio:</strong> Kolkata, West Bengal</p>
-                    <p><strong>Phone:</strong> +91 [Insert Your Phone]</p>
+                    <p><strong>Phone:</strong> +91 [Insert Number]</p>
                     <p><strong>Email:</strong> info@stylewellinterior.com</p>
                 </div>
             </div>
             <form action="https://formspree.io/f/xaqqldlv" method="POST">
-                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="text" name="name" placeholder="Name" required>
                 <input type="email" name="email" placeholder="Email Address" required>
                 <input type="tel" name="phone" placeholder="Phone Number">
-                <textarea name="message" rows="5" placeholder="Project Details (Residential, Cafe, Restoration, etc.)" required></textarea>
-                <button type="submit" class="btn-black">Send Inquiry</button>
+                <textarea name="message" rows="5" placeholder="Project Details (Cafe, Residential, Restoration, etc.)" required></textarea>
+                <button type="submit" class="btn-black">Submit Inquiry</button>
             </form>
         </div>
     </div>
@@ -171,7 +170,7 @@
 
 <footer>
     <div>STYLEWELL INTERIORS</div>
-    <div>EST. 2026 | KOLKATA</div>
+    <div>KOLKATA, WEST BENGAL</div>
 </footer>
 
 <script>
