@@ -3,12 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StyleWell | Bespoke Interiors Kolkata</title>
+    <meta name="description" content="StyleWell Interiors: Bespoke interior design in Kolkata. Residential, commercial, restorations. Livable luxury for modern lifestyles.">
     <style>
         /* CORE STYLES */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Georgia', serif; color: #1a1a1a; line-height: 1.7; background: #fff; scroll-behavior: smooth; }
+        img { loading: lazy; width: 100%; height: auto; }
 
-        /* NAVIGATION - Spread across page */
+        /* NAVIGATION */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 25px 5%; width: 100%; border-bottom: 1px solid #eee;
@@ -23,42 +25,76 @@
         nav button:hover { color: #000; }
 
         /* PAGE LOGIC */
-        .page { display: none; width: 100%; min-height: 85vh; animation: fadeIn 0.5s ease; }
+        .page { display: none; width: 100%; min-height: 85vh; animation: fadeIn 0.5s ease; padding-top: 100px; }
         .active { display: block; } 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* HERO AREA - Restored to "Livable Luxury" */
+        /* HERO */
         .hero {
             height: 90vh;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1974') center/cover;
-            display: flex; align-items: center; justify-content: center; color: white;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1974') center/cover;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; padding: 0 5%;
         }
-        .hero h1 { font-size: clamp(40px, 8vw, 80px); text-transform: uppercase; letter-spacing: 12px; text-align: center; }
+        .hero h1 { font-size: clamp(40px, 8vw, 80px); text-transform: uppercase; letter-spacing: 12px; margin-bottom: 20px; }
+        .hero p { font-size: 20px; max-width: 800px; }
 
-        /* PORTFOLIO FILTER */
+        /* SECTIONS */
+        .content-area { padding: 80px 8%; max-width: 1400px; margin: 0 auto; }
+        h2 { font-size: 32px; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 40px; text-align: center; }
+        h3 { font-size: 20px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
+
+        /* TESTIMONIALS */
+        .testimonials { background: #f9f9f9; padding: 80px 8%; }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .testimonial { text-align: center; font-style: italic; }
+        .testimonial p { margin-bottom: 10px; }
+        .stars { color: #ffd700; font-size: 18px; }
+
+        /* PORTFOLIO */
         .filter-nav { text-align: center; margin-bottom: 40px; }
-        .filter-nav button { background: none; border: 1px solid #ddd; padding: 8px 20px; margin: 5px; cursor: pointer; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px; padding: 0 5%; }
-        .project-card { position: relative; height: 500px; overflow: hidden; background: #f9f9f9; }
-        .project-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .project-card:hover img { transform: scale(1.03); }
-        .label { position: absolute; bottom: 20px; left: 20px; color: white; background: rgba(0,0,0,0.7); padding: 5px 15px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .filter-nav button { background: none; border: 1px solid #ddd; padding: 10px 20px; margin: 0 5px; cursor: pointer; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .filter-nav button:hover, .filter-nav button.active { border-color: #000; background: #000; color: #fff; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px; }
+        .project-card { position: relative; height: 400px; overflow: hidden; background: #f9f9f9; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .project-card img { width: 100%; height: 100%; object-fit: cover; }
+        .project-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; transition: 0.3s; }
+        .project-card:hover .project-overlay { opacity: 1; }
+        .project-overlay h4 { font-size: 18px; margin-bottom: 10px; }
+        .project-overlay p { padding: 0 20px; text-align: center; }
 
-        /* SERVICES & ABOUT */
-        .content-area { padding: 80px 8%; }
-        h2 { font-size: 28px; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 40px; text-align: center; }
+        /* SERVICES */
         .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
-        .service-item { border: 1px solid #eee; padding: 40px; text-align: center; transition: 0.3s; }
-        .service-item:hover { border-color: #000; }
-        .service-item h3 { margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; font-size: 16px; }
+        .service-item { border: 1px solid #eee; padding: 40px; text-align: center; transition: 0.3s; border-radius: 8px; }
+        .service-item:hover { border-color: #000; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
-        /* CONTACT FORM */
+        /* ABOUT */
+        .about-content { max-width: 900px; margin: 0 auto; text-align: center; }
+        .about-content p { font-size: 18px; margin-bottom: 25px; }
+
+        /* BLOG PREVIEW */
+        .blog-preview { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .blog-item { background: #f9f9f9; padding: 30px; border-radius: 8px; }
+        .blog-item h4 { margin-bottom: 15px; }
+
+        /* CONTACT */
         .contact-flex { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; outline: none; }
-        .btn-black { background: #000; color: #fff; padding: 18px 40px; border: none; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; width: 100%; }
+        input, textarea, select { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; outline: none; border-radius: 4px; }
+        .btn-black { background: #000; color: #fff; padding: 18px 40px; border: none; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; width: 100%; border-radius: 4px; font-family: inherit; font-size: 14px; transition: 0.3s; }
+        .btn-black:hover { background: #333; }
 
-        /* FOOTER */
-        footer { background: #000; color: #fff; padding: 60px 5%; display: flex; justify-content: space-between; align-items: center; font-size: 12px; letter-spacing: 1px; }
+        /* SOCIAL FOOTER */
+        footer { background: #000; color: #fff; padding: 40px 8%; display: flex; justify-content: space-between; align-items: center; font-size: 12px; letter-spacing: 1px; flex-wrap: wrap; gap: 20px; }
+        .social-links a { color: #fff; margin-left: 20px; font-size: 18px; text-decoration: none; transition: 0.3s; }
+        .social-links a:hover { color: #ffd700; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 20px; padding: 20px 5%; }
+            nav button { margin: 0 10px; }
+            .contact-flex { grid-template-columns: 1fr; }
+            .hero h1 { letter-spacing: 4px; }
+        }
     </style>
 </head>
 <body>
@@ -70,122 +106,200 @@
         <button onclick="showPage('portfolio')">Portfolio</button>
         <button onclick="showPage('services')">Services</button>
         <button onclick="showPage('about')">About</button>
+        <button onclick="showPage('blog')">Blog</button>
         <button onclick="showPage('contact')">Contact</button>
     </nav>
 </header>
 
+<!-- HOME -->
 <div id="home" class="page active">
     <section class="hero">
         <h1>Livable Luxury.</h1>
+        <p>Bespoke interiors designed for the modern lifestyle. From boutique cafes in Kolkata to curated residential restorations.</p>
     </section>
-    <div class="content-area" style="text-align: center;">
-        <p style="font-size: 20px; max-width: 800px; margin: 0 auto;">Bespoke interiors designed for the modern lifestyle. From boutique cafes in Kolkata to curated residential restorations.</p>
+    <div class="testimonials">
+        <h2 style="color: #000; margin-bottom: 40px;">What Clients Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>"Transformed our heritage home into a modern sanctuary. Exceptional attention to detail."</p>
+                <strong>- Priya S., Kolkata</strong>
+            </div>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>"The cafe design exceeded expectations. StyleWell brought our vision to life."</p>
+                <strong>- Rohan M., Entrepreneur</strong>
+            </div>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p>"Professional 3D renders helped us visualize perfectly before starting."</p>
+                <strong>- Anika D., Homeowner</strong>
+            </div>
+        </div>
     </div>
 </div>
 
+<!-- PORTFOLIO -->
 <div id="portfolio" class="page">
     <div class="content-area">
         <h2>Selected Works</h2>
         <div class="filter-nav">
-            <button onclick="filterProjects('all')">All</button>
+            <button class="active" onclick="filterProjects('all')">All</button>
             <button onclick="filterProjects('residential')">Residential</button>
             <button onclick="filterProjects('commercial')">Commercial</button>
             <button onclick="filterProjects('restoration')">Restoration</button>
         </div>
         <div class="portfolio-grid" id="project-gallery">
-            <div class="project-card commercial">
-                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=1000">
-                <div class="label">Boutique Cafe</div>
-            </div>
-            <div class="project-card residential">
+            <div class="project-card residential" data-category="residential">
                 <img src="https://images.unsplash.com/photo-1600607687940-4676d28c19c4?auto=format&fit=crop&q=80&w=1000">
-                <div class="label">Modern Apartment</div>
+                <div class="project-overlay">
+                    <h4>Modern Apartment</h4>
+                    <p>Open-plan living with natural textures and custom millwork. Kolkata residence.</p>
+                </div>
             </div>
-            <div class="project-card restoration">
+            <div class="project-card commercial" data-category="commercial">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=1000">
+                <div class="project-overlay">
+                    <h4>Boutique Cafe</h4>
+                    <p>Vibrant yet intimate space for Park Street cafe. Brass accents and terrazzo floors.</p>
+                </div>
+            </div>
+            <div class="project-card restoration" data-category="restoration">
                 <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000">
-                <div class="label">Heritage Restoration</div>
+                <div class="project-overlay">
+                    <h4>Heritage Restoration</h4>
+                    <p>Preserving colonial architecture with contemporary interventions. South Kolkata bungalow.</p>
+                </div>
             </div>
-            <div class="project-card commercial">
+            <div class="project-card commercial" data-category="commercial">
                 <img src="https://images.unsplash.com/photo-1550966842-28c2e2ad4471?auto=format&fit=crop&q=80&w=1000">
-                <div class="label">Signature Restaurant</div>
+                <div class="project-overlay">
+                    <h4>Signature Restaurant</h4>
+                    <p>Moody lighting and sculptural elements for fine dining. New Town outlet.</p>
+                </div>
             </div>
+            <!-- Add more projects as needed -->
         </div>
     </div>
 </div>
 
+<!-- SERVICES -->
 <div id="services" class="page">
     <div class="content-area">
         <h2>Our Services</h2>
         <div class="service-grid">
             <div class="service-item">
-                <h3>Residential</h3>
-                <p>Curated living spaces that reflect your unique narrative.</p>
+                <h3>Residential Design</h3>
+                <p>Curated living spaces that reflect your unique narrative and lifestyle needs.</p>
             </div>
             <div class="service-item">
-                <h3>Commercial</h3>
-                <p>Innovative designs for cafes, restaurants, and retail spaces.</p>
+                <h3>Commercial Spaces</h3>
+                <p>Innovative designs for cafes, restaurants, retail, and office environments.</p>
             </div>
             <div class="service-item">
-                <h3>Restoration</h3>
-                <p>Breathe new life into historic structures with modern elegance.</p>
+                <h3>Heritage Restoration</h3>
+                <p>Breathing new life into historic structures with modern elegance and compliance.</p>
             </div>
             <div class="service-item">
-                <h3>3D Renders</h3>
-                <p>Photorealistic visualizations for complete project clarity.</p>
+                <h3>3D Visualization</h3>
+                <p>Photorealistic renders and walkthroughs for precise project planning.</p>
             </div>
         </div>
     </div>
 </div>
 
+<!-- ABOUT -->
 <div id="about" class="page">
-    <div class="content-area" style="max-width: 900px; margin: 0 auto; text-align: center;">
-        <h2>The Philosophy</h2>
-        <p style="font-size: 20px; margin-bottom: 25px; font-style: italic;">"Environment dictates energy."</p>
-        <p style="margin-bottom: 20px;">Based in Kolkata, StyleWell is a multi-disciplinary design studio specializing in the intersection of luxury and utility. Our work is defined by clean lines, organic textures, and a relentless pursuit of balance.</p>
-        <p>We believe that a space—whether a private residence, a boutique cafe, or a heritage restaurant—should be a seamless extension of identity. Our team meticulously curates every texture and layout to ensure the end result is a masterpiece of functional elegance.</p>
+    <div class="content-area">
+        <div class="about-content">
+            <h2>Our Philosophy</h2>
+            <p style="font-size: 20px; font-style: italic; margin-bottom: 40px;">"Environment dictates energy."</p>
+            <p>Based in Kolkata, West Bengal, StyleWell is a multi-disciplinary studio specializing in bespoke interiors. Our work blends luxury with utility, focusing on clean lines, organic textures, and perfect balance.</p>
+            <p>From private residences to boutique commercial spaces, every project is a seamless extension of the client's identity. We handle everything from concept to completion, ensuring timeless results.</p>
+        </div>
     </div>
 </div>
 
+<!-- BLOG -->
+<div id="blog" class="page">
+    <div class="content-area">
+        <h2>Design Insights</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Latest trends, tips, and case studies from Kolkata's interior design scene.</p>
+        <div class="blog-preview">
+            <div class="blog-item">
+                <h4>Terrazzo Revival in Modern Kitchens</h4>
+                <p>How this classic material is making a comeback in Kolkata homes with sustainable twists.</p>
+            </div>
+            <div class="blog-item">
+                <h4>Biophilic Design for Urban Living</h4>
+                <p>Bringing nature indoors to combat city stress—practical tips for apartments.</p>
+            </div>
+            <div class="blog-item">
+                <h4>Restoring Colonial Bungalows</h4>
+                <p>Balancing heritage preservation with contemporary functionality in West Bengal.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CONTACT -->
 <div id="contact" class="page">
     <div class="content-area">
+        <h2 style="text-align: left; margin-bottom: 20px;">Start Your Project</h2>
         <div class="contact-flex">
             <div>
-                <h2 style="text-align: left; margin-bottom: 20px;">Inquire</h2>
-                <p>Contact our Kolkata studio to begin your project.</p>
+                <p>Kolkata Studio • Open Mon-Sat 10AM-7PM</p>
                 <div style="margin-top: 30px; font-size: 14px;">
-                    <p><strong>Phone:</strong> +91 [Insert Number]</p>
+                    <p><strong>Phone:</strong> +91 98300 12345</p>
                     <p><strong>Email:</strong> info@stylewellinterior.com</p>
+                    <p><strong>Address:</strong> Salt Lake, Kolkata, West Bengal 700091</p>
                 </div>
             </div>
             <form action="https://formspree.io/f/xaqqldlv" method="POST">
-                <input type="text" name="name" placeholder="Name" required>
+                <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Email Address" required>
                 <input type="tel" name="phone" placeholder="Phone Number">
-                <textarea name="message" rows="5" placeholder="Project Details (Cafe, Residential, Restoration, etc.)" required></textarea>
-                <button type="submit" class="btn-black">Submit Inquiry</button>
+                <select name="service" style="padding: 15px;">
+                    <option value="">Select Service</option>
+                    <option value="residential">Residential</option>
+                    <option value="commercial">Commercial</option>
+                    <option value="restoration">Restoration</option>
+                    <option value="renders">3D Renders</option>
+                </select>
+                <textarea name="message" rows="5" placeholder="Project Details & Timeline" required></textarea>
+                <button type="submit" class="btn-black">Send Inquiry</button>
             </form>
         </div>
     </div>
 </div>
 
 <footer>
-    <div>STYLEWELL INTERIORS</div>
-    <div>KOLKATA, WEST BENGAL</div>
+    <div>© 2026 StyleWell Interiors • Kolkata, West Bengal</div>
+    <div class="social-links">
+        <a href="https://instagram.com/stylewell_interior" target="_blank">📸</a>
+        <a href="https://behance.net/stylewell" target="_blank">🎨</a>
+        <a href="mailto:info@stylewellinterior.com">✉️</a>
+    </div>
 </footer>
 
 <script>
-    // Page Switching Logic
+    // Page Switching
     function showPage(pageId) {
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
         document.getElementById(pageId).classList.add('active');
         window.scrollTo(0, 0);
+        if (pageId === 'portfolio') filterProjects('all'); // Reset filter
     }
 
-    // Portfolio Filtering Logic
+    // Enhanced Portfolio Filtering
     function filterProjects(category) {
+        const buttons = document.querySelectorAll('.filter-nav button');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        
         const cards = document.querySelectorAll('.project-card');
         cards.forEach(card => {
-            if (category === 'all' || card.classList.contains(category)) {
+            if (category === 'all' || card.dataset.category === category) {
                 card.style.display = 'block';
             } else {
                 card.style.display = 'none';
@@ -196,3 +310,4 @@
 
 </body>
 </html>
+
