@@ -5,96 +5,103 @@
     <title>StyleWell | Bespoke Interiors Kolkata</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* AESTHETIC CONFIG: Light & Airy */
+        /* CORE CONFIG: Obsidian Aesthetic */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: 'Georgia', serif; 
-            color: #2c2c2c; 
-            background: #fafafa; 
+            color: #efefef; 
+            background: #0a0a0a; /* Smidge lighter than pure black */
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        /* FLOATING GLASS NAV */
+        /* GLASS NAVIGATION */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 25px 5%; width: 100%; 
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(15px);
+            padding: 20px 5%; width: 100%; 
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(20px);
             position: fixed; top: 0; z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .logo { font-size: 20px; font-weight: bold; letter-spacing: 6px; color: #1a1a1a; cursor: pointer; text-decoration: none; }
+        .logo { font-size: 22px; font-weight: bold; letter-spacing: 5px; color: #fff; cursor: pointer; text-decoration: none; }
         nav button { 
             background: none; border: none; margin-left: 25px; 
-            color: #777; text-transform: uppercase; font-size: 10px; 
-            letter-spacing: 3px; cursor: pointer; transition: 0.3s;
+            color: rgba(255,255,255,0.6); text-transform: uppercase; font-size: 10px; 
+            letter-spacing: 3px; cursor: pointer; transition: 0.4s;
         }
-        nav button:hover { color: #000; letter-spacing: 4px; }
+        nav button:hover { color: #fff; transform: translateY(-1px); }
 
         /* PAGE SYSTEM */
-        .page { display: none; width: 100%; min-height: 100vh; animation: pageFade 0.8s ease forwards; }
+        .page { display: none; width: 100%; animation: cinematicFade 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
         .active { display: block; }
-        @keyframes pageFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes cinematicFade { from { opacity: 0; filter: blur(10px); } to { opacity: 1; filter: blur(0); } }
 
-        /* HERO / BACKGROUND SECTION */
-        .hero-section {
-            height: 85vh;
+        /* FULL-SCREEN PARALLAX SECTIONS */
+        .hero-bg {
+            height: 100vh;
+            width: 100%;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             background-size: cover; background-position: center; background-attachment: fixed;
-            text-align: center; color: #fff; padding: 0 10%;
+            text-align: center; padding: 0 10%;
         }
-        .bg-home { background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1615529328331-f8917597711f?auto=format&fit=crop&q=80&w=2000'); }
         
-        /* CONTENT STYLING */
-        .content-container { padding: 120px 10% 80px; max-width: 1400px; margin: 0 auto; }
+        /* Background Images - Link your renders here */
+        .bg-home { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=2000'); }
+        .bg-portfolio { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('render1.jpg'); }
+        .bg-services { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000'); }
+
         h1, h2 { 
-            font-size: clamp(28px, 5vw, 60px); 
-            text-transform: uppercase; letter-spacing: 12px; 
-            font-weight: 300; margin-bottom: 30px; color: #1a1a1a;
+            font-size: clamp(35px, 7vw, 75px); 
+            text-transform: uppercase; letter-spacing: 15px; 
+            font-weight: 300; margin-bottom: 20px; color: #fff;
+            animation: tracking-expand 1.2s ease;
         }
-        .sub-text { font-size: 14px; letter-spacing: 4px; text-transform: uppercase; color: #888; margin-bottom: 10px; display: block; }
+        @keyframes tracking-expand { from { letter-spacing: -0.2em; opacity: 0; } to { letter-spacing: 15px; opacity: 1; } }
 
-        /* INTERACTIVE GRID */
-        .aesthetic-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px; margin-top: 50px;
-        }
-        .glass-item {
-            background: #fff; padding: 50px; border: 1px solid #eee;
-            transition: all 0.5s ease; position: relative; overflow: hidden;
-        }
-        .glass-item:hover {
-            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
-            transform: translateY(-5px);
-            border-color: #d4d4d4;
-        }
-        .glass-item h3 { text-transform: uppercase; letter-spacing: 3px; font-size: 16px; margin-bottom: 15px; }
+        p.desc { font-size: 14px; letter-spacing: 3px; color: rgba(255,255,255,0.7); max-width: 600px; }
 
-        /* PORTFOLIO IMAGES */
-        .render-display { width: 100%; height: 500px; object-fit: cover; margin-bottom: 20px; border: 1px solid #eee; }
+        /* INTERACTIVE GLASS CARDS */
+        .grid-layout {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px; width: 100%; margin-top: 50px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            padding: 50px 30px; border: 1px solid rgba(255,255,255,0.08);
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: scale(1.02);
+            border-color: rgba(255,255,255,0.3);
+        }
+        .glass-card h3 { text-transform: uppercase; letter-spacing: 4px; font-size: 14px; margin-bottom: 15px; }
 
-        /* MINIMAL FORM */
-        form { max-width: 600px; margin: 40px auto; }
+        /* CONTACT FORM */
+        form { width: 100%; max-width: 500px; margin-top: 40px; }
         input, textarea {
-            width: 100%; background: transparent; border: none; border-bottom: 1px solid #ddd;
-            padding: 20px 10px; margin-bottom: 20px; font-family: inherit; transition: 0.3s;
+            width: 100%; background: transparent; border: none; 
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding: 15px; color: #fff; margin-bottom: 20px; font-family: inherit;
+            transition: 0.3s;
         }
-        input:focus { border-bottom: 1px solid #000; outline: none; }
+        input:focus { border-bottom: 1px solid #fff; outline: none; }
         .submit-btn {
-            background: #1a1a1a; color: #fff; padding: 20px 60px;
+            background: #fff; color: #000; border: none; padding: 18px 50px;
             text-transform: uppercase; letter-spacing: 4px; font-size: 11px;
-            border: none; cursor: pointer; transition: 0.4s; margin-top: 20px;
+            cursor: pointer; transition: 0.4s; margin-top: 20px;
         }
-        .submit-btn:hover { background: #000; letter-spacing: 6px; }
+        .submit-btn:hover { letter-spacing: 7px; background: #efefef; }
 
-        /* FOOTER */
         footer {
-            padding: 60px 10%; background: #fff; border-top: 1px solid #eee;
+            padding: 50px 5%; background: #0a0a0a;
             display: flex; justify-content: space-between; align-items: center;
-            font-size: 11px; letter-spacing: 2px; color: #888;
+            font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.4);
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
-        .insta-link { color: #1a1a1a; text-decoration: none; font-weight: bold; }
+        .social-link { color: #fff; text-decoration: none; font-weight: bold; border-bottom: 1px solid rgba(255,255,255,0.2); }
     </style>
 </head>
 <body>
@@ -111,88 +118,64 @@
 </header>
 
 <div id="home" class="page active">
-    <section class="hero-section bg-home">
-        <span class="sub-text" style="color:#fff">Kolkata Studio</span>
-        <h1 style="color:#fff">Livable Luxury.</h1>
+    <section class="hero-bg bg-home">
+        <h1>Livable Luxury.</h1>
+        <p class="desc">Bespoke interiors for residential and commercial landmarks in Kolkata.</p>
     </section>
 </div>
 
 <div id="portfolio" class="page">
-    <div class="content-container">
-        <span class="sub-text">Curation</span>
-        <h2>Selected Renders</h2>
-        <div class="aesthetic-grid">
-            <img src="render1.jpg" class="render-display" alt="Project 1" onerror="this.src='https://images.unsplash.com/photo-1616486341351-70ad5a4bc44a?auto=format&fit=crop&q=80&w=1000'">
-            <img src="render2.jpg" class="render-display" alt="Project 2" onerror="this.src='https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?auto=format&fit=crop&q=80&w=1000'">
+    <section class="hero-bg bg-portfolio">
+        <h2>The Vision</h2>
+        <p class="desc">A collection of our latest high-fidelity 3D renders and transformations.</p>
+        <div class="grid-layout">
+            <div class="glass-card"><h3>Cafe Interiors</h3><p>Hospitality focused on soul.</p></div>
+            <div class="glass-card"><h3>Private Living</h3><p>Sanctuaries for the modern home.</p></div>
+            <div class="glass-card"><h3>Restorations</h3><p>New life for historic bones.</p></div>
         </div>
-    </div>
+    </section>
 </div>
 
 <div id="services" class="page">
-    <div class="content-container">
-        <span class="sub-text">What we do</span>
+    <section class="hero-bg bg-services">
         <h2>Services</h2>
-        <div class="aesthetic-grid">
-            <div class="glass-item">
-                <h3>Residential</h3>
-                <p>Personalized living environments designed for the modern lifestyle.</p>
-            </div>
-            <div class="glass-item">
-                <h3>Commercial</h3>
-                <p>Strategic hospitality design for cafes, restaurants, and retail spaces.</p>
-            </div>
-            <div class="glass-item">
-                <h3>Restoration</h3>
-                <p>Preserving the architectural heritage of Kolkata with a luxury lens.</p>
-            </div>
+        <div class="grid-layout">
+            <div class="glass-card"><h3>Design</h3><p>Full-scale spatial architecture.</p></div>
+            <div class="glass-card"><h3>3D Visuals</h3><p>Photorealistic project depth.</p></div>
+            <div class="glass-card"><h3>Execution</h3><p>Project management & delivery.</p></div>
         </div>
-    </div>
+    </section>
 </div>
 
 <div id="about" class="page">
-    <div class="content-container" style="text-align: center;">
-        <span class="sub-text">Philosophy</span>
+    <section class="hero-bg" style="background-image: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.8));">
         <h2>Environment dictates energy.</h2>
-        <p style="max-width: 700px; margin: 0 auto; font-size: 18px; color: #555;">
-            Based in Kolkata, StyleWell is a multi-disciplinary design studio specializing in the intersection of luxury and utility. 
-            We believe that a space—whether private or public—should be a seamless extension of identity.
-        </p>
-    </div>
+        <p class="desc" style="max-width: 800px;">Based in Kolkata, StyleWell is a multi-disciplinary studio specializing in the intersection of luxury and utility. We believe that every space is a seamless extension of identity.</p>
+    </section>
 </div>
 
 <div id="contact" class="page">
-    <div class="content-container" style="text-align: center;">
-        <span class="sub-text">Get in touch</span>
+    <section class="hero-bg" style="background-image: linear-gradient(rgba(10,10,10,0.9), rgba(10,10,10,0.9));">
         <h2>Inquire</h2>
-        <p>stylewellinteriors.info@gmail.com</p>
-        
+        <p class="desc">stylewellinteriors.info@gmail.com</p>
         <form action="https://formspree.io/f/xaqqldlv" method="POST">
             <input type="text" name="name" placeholder="YOUR NAME" required>
             <input type="email" name="email" placeholder="EMAIL ADDRESS" required>
-            <input type="tel" name="phone" placeholder="PHONE NUMBER">
-            <textarea name="message" rows="4" placeholder="DESCRIBE YOUR VISION" required></textarea>
-            <button type="submit" class="submit-btn">Send Message</button>
+            <textarea name="message" rows="3" placeholder="YOUR VISION" required></textarea>
+            <button type="submit" class="submit-btn">Send Inquiry</button>
         </form>
-    </div>
+    </section>
 </div>
 
 <footer>
-    <div>STYLEWELL INTERIORS | KOLKATA</div>
-    <div>
-        FOLLOW US: <a href="https://www.instagram.com/stylewellinteriors_kolkata" class="insta-link" target="_blank">INSTAGRAM</a>
-    </div>
+    <div>STYLEWELL | KOLKATA</div>
+    <div><a href="https://www.instagram.com/stylewellinteriors_kolkata" class="social-link" target="_blank">INSTAGRAM</a></div>
 </footer>
 
 <script>
     function showPage(pageId) {
-        // Hide all pages
-        var pages = document.getElementsByClassName('page');
-        for (var i = 0; i < pages.length; i++) {
-            pages[i].classList.remove('active');
-        }
-        // Show selected page
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
         document.getElementById(pageId).classList.add('active');
-        // Scroll to top
         window.scrollTo(0, 0);
     }
 </script>
