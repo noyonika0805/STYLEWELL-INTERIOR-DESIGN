@@ -5,77 +5,66 @@
     <title>StyleWell | Bespoke Interiors</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* CORE CONFIG */
         * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
         body { font-family: 'Georgia', serif; color: #efefef; background: #050505; overflow-x: hidden; line-height: 1.6; }
 
-        /* CUSTOM CURSOR */
+        /* CURSOR */
         .cursor { width: 8px; height: 8px; background: #fff; border-radius: 50%; position: fixed; pointer-events: none; z-index: 10001; }
-        .cursor-follower { width: 30px; height: 30px; border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; position: fixed; pointer-events: none; z-index: 10000; transition: transform 0.15s ease; }
+        .cursor-follower { width: 30px; height: 30px; border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; position: fixed; pointer-events: none; z-index: 10000; transition: transform 0.1s ease; }
 
-        /* PRISM GLASS NAVIGATION */
+        /* NAVIGATION - GLASS PRISM EFFECT */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 20px 5%; width: 100%; 
-            background: rgba(255, 255, 255, 0.03); 
+            background: rgba(10, 10, 10, 0.4); 
             backdrop-filter: blur(20px) saturate(180%); 
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             position: fixed; top: 0; z-index: 1000; 
             border-bottom: 1px solid rgba(255,255,255,0.1); 
         }
-        .logo { font-size: 20px; font-weight: bold; letter-spacing: 6px; color: #fff; text-decoration: none; cursor: pointer; }
-
+        .logo { font-size: 20px; font-weight: bold; letter-spacing: 6px; color: #fff; text-decoration: none; }
         nav { display: flex; align-items: center; }
-        nav button { background: none; border: none; margin-left: 20px; color: rgba(255,255,255,0.5); text-transform: uppercase; font-size: 10px; letter-spacing: 2px; transition: 0.3s; cursor: pointer; }
+        nav button { background: none; border: none; margin-left: 20px; color: rgba(255,255,255,0.5); text-transform: uppercase; font-size: 10px; letter-spacing: 2px; transition: 0.3s; }
         nav button:hover { color: #fff; }
-        .nav-insta { color: #fff; font-size: 16px; margin-left: 25px; transition: 0.3s; }
-        .nav-insta:hover { transform: translateY(-2px); color: #d62976; }
+        .nav-insta { color: #fff; font-size: 16px; margin-left: 20px; transition: 0.3s; }
 
         /* PAGE SYSTEM */
-        .page { display: none; width: 100%; animation: prismFade 0.8s ease; min-height: 100vh; }
+        .page { display: none; width: 100%; animation: fade 0.8s ease; min-height: 100vh; }
         .active { display: block; }
-        @keyframes prismFade { from { opacity: 0; filter: blur(10px); } to { opacity: 1; filter: blur(0); } }
+        @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 
-        /* PARALLAX SECTIONS */
-        .parallax {
-            height: 100vh; width: 100%; 
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        /* PARALLAX EFFECT */
+        .parallax-section {
+            height: 100vh; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;
             background-attachment: fixed; background-size: cover; background-position: center;
         }
-        .hero-img { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000'); }
+        .hero-home { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=2000'); }
+        .hero-about { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=2000'); }
 
-        /* THE PRISM EFFECT CARD */
-        .prism-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px) saturate(150%);
-            -webkit-backdrop-filter: blur(15px) saturate(150%);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-top: 1px solid rgba(255, 255, 255, 0.4); /* Specular Highlight */
-            border-left: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 50px;
-            border-radius: 4px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        /* SOLID BLACK BORDERS (RETAINED) */
+        .black-border-card {
+            background: rgba(10, 10, 10, 0.8);
+            border: 2px solid #000; /* Re-applied solid black borders */
+            padding: 40px;
+            backdrop-filter: blur(10px);
         }
 
-        /* PORTFOLIO GRID */
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 120px 5% 50px; }
-        .item { position: relative; height: 60vh; overflow: hidden; background: #111; border: 1px solid rgba(255,255,255,0.1); }
-        .item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; transition: 1s; }
-        .item:hover img { transform: scale(1.05); opacity: 0.8; }
-        .item-label { position: absolute; bottom: 30px; left: 30px; letter-spacing: 4px; font-size: 12px; text-transform: uppercase; }
+        /* GRID SYSTEMS */
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 120px 5% 50px; }
+        .card { position: relative; height: 60vh; overflow: hidden; background: #000; border: 2px solid #000; }
+        .card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: 1s; }
+        .card:hover img { opacity: 0.9; transform: scale(1.05); }
 
-        /* CONTACT FORM */
-        .form-box { max-width: 500px; margin: 150px auto; }
-        input, textarea { width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 15px; color: #fff; margin-bottom: 20px; outline: none; }
-        .btn { background: #fff; color: #000; padding: 15px 40px; border: none; text-transform: uppercase; letter-spacing: 3px; font-size: 10px; cursor: pointer; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 120px 10%; }
 
-        /* FOOTER */
-        footer { 
-            padding: 60px 5%; border-top: 1px solid rgba(255,255,255,0.05); 
-            display: flex; justify-content: space-between; align-items: center;
-            font-size: 10px; letter-spacing: 2px; color: #444; 
-        }
-        .footer-social a { color: #888; font-size: 18px; transition: 0.3s; }
-        .footer-social a:hover { color: #fff; }
+        /* FORMS */
+        .form-container { max-width: 600px; margin: 0 auto; }
+        input, textarea { width: 100%; background: transparent; border: none; border-bottom: 1px solid #333; padding: 15px; color: #fff; margin-bottom: 20px; outline: none; }
+        .btn { background: #fff; color: #000; padding: 15px 50px; border: none; text-transform: uppercase; letter-spacing: 3px; font-size: 10px; }
+
+        footer { padding: 40px 5%; border-top: 1px solid #111; display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: #444; letter-spacing: 2px; }
+        footer a { color: #444; font-size: 16px; }
     </style>
 </head>
 <body>
@@ -88,54 +77,71 @@
     <nav>
         <button onclick="showPage('home')">Home</button>
         <button onclick="showPage('portfolio')">Portfolio</button>
+        <button onclick="showPage('services')">Services</button>
+        <button onclick="showPage('about')">About</button>
         <button onclick="showPage('contact')">Inquire</button>
         <a href="https://instagram.com/stylewellinteriors_kolkata" target="_blank" class="nav-insta"><i class="fab fa-instagram"></i></a>
     </nav>
 </header>
 
 <div id="home" class="page active">
-    <div class="parallax hero-img">
-        <div class="prism-card" style="text-align: center;">
-            <h1 style="letter-spacing: 15px; font-weight: 300; font-size: 40px;">STYLEWELL</h1>
-            <p style="letter-spacing: 5px; color: #888; margin-top: 10px;">LIVABLE LUXURY | KOLKATA</p>
-        </div>
-    </div>
+    <section class="parallax-section hero-home">
+        <h1 style="letter-spacing: 15px; font-weight: 300; font-size: clamp(30px, 6vw, 60px);">STYLEWELL</h1>
+        <p style="letter-spacing: 5px; color: #888;">LIVABLE LUXURY | KOLKATA</p>
+    </section>
 </div>
 
 <div id="portfolio" class="page">
     <div class="grid">
-        <div class="item prism-card">
-            <img src="render1.jpg" alt="Interior">
-            <div class="item-label">Private Residences</div>
+        <div class="card"><img src="render1.jpg" alt="1"><div style="position:absolute; bottom:20px; left:20px; font-size:10px; letter-spacing:3px;">RESIDENTIAL</div></div>
+        <div class="card"><img src="render2.jpg" alt="2"><div style="position:absolute; bottom:20px; left:20px; font-size:10px; letter-spacing:3px;">COMMERCIAL</div></div>
+        <div class="card"><img src="render3.jpg" alt="3"><div style="position:absolute; bottom:20px; left:20px; font-size:10px; letter-spacing:3px;">RESTORATION</div></div>
+    </div>
+</div>
+
+<div id="services" class="page">
+    <div class="services-grid">
+        <div class="black-border-card">
+            <h3 style="font-size: 14px; letter-spacing: 3px; margin-bottom: 10px;">CONSULTANCY</h3>
+            <p style="font-size: 12px; color: #777;">Spatial planning and concept development for elite properties.</p>
         </div>
-        <div class="item prism-card">
-            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80" alt="Commercial">
-            <div class="item-label">Commercial Spaces</div>
+        <div class="black-border-card">
+            <h3 style="font-size: 14px; letter-spacing: 3px; margin-bottom: 10px;">3D VISUALIZATION</h3>
+            <p style="font-size: 12px; color: #777;">Photorealistic renders that bring your vision to life before construction.</p>
         </div>
-        <div class="item prism-card">
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80" alt="Consultancy">
-            <div class="item-label">3D Visualization</div>
+        <div class="black-border-card">
+            <h3 style="font-size: 14px; letter-spacing: 3px; margin-bottom: 10px;">TURNKEY DESIGN</h3>
+            <p style="font-size: 12px; color: #777;">End-to-end execution, from raw site to curated sanctuary.</p>
         </div>
     </div>
 </div>
 
+<div id="about" class="page">
+    <section class="parallax-section hero-about">
+        <div class="black-border-card" style="max-width: 600px; text-align: center;">
+            <h2 style="letter-spacing: 10px; font-weight: 300; margin-bottom: 20px;">THE STUDIO</h2>
+            <p style="font-size: 13px; color: #ccc;">Based in Kolkata, StyleWell bridges the gap between architectural precision and emotional resonance. We create environments that don't just look luxury—they feel like home.</p>
+        </div>
+    </section>
+</div>
+
 <div id="contact" class="page">
-    <div class="form-box prism-card">
-        <h2 style="letter-spacing: 5px; margin-bottom: 30px; font-weight: 300;">INQUIRE</h2>
-        <form>
-            <input type="text" placeholder="NAME">
-            <input type="email" placeholder="EMAIL">
-            <textarea rows="4" placeholder="PROJECT DETAILS"></textarea>
-            <button type="submit" class="btn">Request Consultation</button>
-        </form>
+    <div style="padding: 150px 5%;">
+        <div class="form-container black-border-card">
+            <h2 style="letter-spacing: 5px; margin-bottom: 30px; font-weight: 300;">INQUIRE</h2>
+            <form action="https://formspree.io/f/xaqqldlv" method="POST">
+                <input type="text" name="name" placeholder="NAME" required>
+                <input type="email" name="email" placeholder="EMAIL" required>
+                <textarea name="message" rows="4" placeholder="PROJECT DETAILS"></textarea>
+                <button type="submit" class="btn">Send Inquiry</button>
+            </form>
+        </div>
     </div>
 </div>
 
 <footer>
-    <div>© 2026 STYLEWELL INTERIORS</div>
-    <div class="footer-social">
-        <a href="https://instagram.com/stylewellinteriors_kolkata" target="_blank"><i class="fab fa-instagram"></i></a>
-    </div>
+    <div>STYLEWELL INTERIORS | 2026</div>
+    <a href="https://instagram.com/stylewellinteriors_kolkata" target="_blank"><i class="fab fa-instagram"></i></a>
 </footer>
 
 <script>
@@ -145,12 +151,13 @@
         window.scrollTo(0,0);
     }
 
-    // Cursor Movement
     const cursor = document.querySelector('.cursor');
     const follower = document.querySelector('.cursor-follower');
     document.addEventListener('mousemove', e => {
-        cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-        follower.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        follower.style.left = (e.clientX - 11) + 'px';
+        follower.style.top = (e.clientY - 11) + 'px';
     });
 </script>
 
