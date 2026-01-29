@@ -19,7 +19,7 @@
         .cursor { width: 8px; height: 8px; background: #fff; border-radius: 50%; position: fixed; pointer-events: none; z-index: 10001; }
         .cursor-follower { width: 30px; height: 30px; border: 1px solid rgba(255,255,255,0.5); border-radius: 50%; position: fixed; pointer-events: none; z-index: 10000; transition: transform 0.1s ease; }
 
-        /* NAVIGATION - BOLD PRISM */
+        /* NAVIGATION */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 20px 5%; width: 100%; 
@@ -37,7 +37,7 @@
         .page { display: none; width: 100%; min-height: 100vh; }
         .active { display: block; }
 
-        /* INSTANT BACKGROUND SECTIONS */
+        /* SECTIONS */
         .section-bg {
             min-height: 100vh; width: 100%; 
             display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -45,7 +45,6 @@
             padding: 120px 5%;
         }
 
-        /* BRIGHT TEXT PRISM CARDS */
         .prism-card {
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(20px);
@@ -55,16 +54,10 @@
             position: relative;
             transition: 0.3s;
         }
-        .prism-card h3 { 
-            color: #ffffff; 
-            font-size: 18px; 
-            letter-spacing: 4px; 
-            margin-bottom: 15px; 
-            font-weight: 900; 
-        }
+        .prism-card h3 { color: #ffffff; font-size: 18px; letter-spacing: 4px; margin-bottom: 15px; font-weight: 900; }
         .prism-card p { color: #ffffff; font-size: 14px; font-weight: 400; opacity: 0.9; }
 
-        /* GALLERY */
+        /* GALLERY GRID */
         .gallery-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
@@ -163,19 +156,39 @@
 </footer>
 
 <script>
+    // UPDATED IMAGE ARRAY WITH ALL YOUR WHATSAPP IMAGES
     const images = [
-        "WhatsApp Image 2026-01-22 at 11.16.23.jpeg", "WhatsApp Image 2026-01-22 at 11.17.46 (1).jpeg",
-        "WhatsApp Image 2026-01-22 at 11.17.46 (2).jpeg", "WhatsApp Image 2026-01-22 at 11.17.46 (3).jpeg",
-        "WhatsApp Image 2026-01-22 at 11.17.46.jpeg", "WhatsApp Image 2026-01-22 at 11.17.47 (1).jpeg",
-        "WhatsApp Image 2026-01-22 at 11.17.47 (2).jpeg", "WhatsApp Image 2026-01-22 at 11.17.47.jpeg",
-        "WhatsApp Image 2026-01-22 at 11.17.48 (1).jpeg", "WhatsApp Image 2026-01-22 at 11.17.48 (2).jpeg",
-        "WhatsApp Image 2026-01-22 at 11.17.48 (3).jpeg", "WhatsApp Image 2026-01-22 at 11.17.48.jpeg",
-        "WhatsApp Image 2026-01-22 at 11.17.49 (1).jpeg", "WhatsApp Image 2026-01-22 at 11.17.49 (2).jpeg",
-        "WhatsApp Image 2026-01-22 at 11.17.49 (3).jpeg", "WhatsApp Image 2026-01-22 at 11.17.49.jpeg"
+        "WhatsApp Image 2026-01-22 at 11.16.23.jpeg", 
+        "WhatsApp Image 2026-01-22 at 11.17.46 (1).jpeg",
+        "WhatsApp Image 2026-01-22 at 11.17.46 (2).jpeg", 
+        "WhatsApp Image 2026-01-22 at 11.17.46 (3).jpeg",
+        "WhatsApp Image 2026-01-22 at 11.17.46.jpeg", 
+        "WhatsApp Image 2026-01-22 at 11.17.47 (1).jpeg",
+        "WhatsApp Image 2026-01-22 at 11.17.47 (2).jpeg", 
+        "WhatsApp Image 2026-01-22 at 11.17.47.jpeg",
+        "WhatsApp Image 2026-01-22 at 11.17.48 (1).jpeg", 
+        "WhatsApp Image 2026-01-22 at 11.17.48 (2).jpeg",
+        "WhatsApp Image 2026-01-22 at 11.17.48 (3).jpeg", 
+        "WhatsApp Image 2026-01-22 at 11.17.48.jpeg",
+        "WhatsApp Image 2026-01-22 at 11.17.49 (1).jpeg", 
+        "WhatsApp Image 2026-01-22 at 11.17.49 (2).jpeg",
+        "WhatsApp Image 2026-01-22 at 11.17.49 (3).jpeg", 
+        "WhatsApp Image 2026-01-22 at 11.17.49.jpeg",
+        "WhatsApp Image 2026-01-22 at 12.06.50 (1).jpeg",
+        "WhatsApp Image 2026-01-22 at 12.06.50 (2).jpeg",
+        "WhatsApp Image 2026-01-22 at 12.06.50.jpeg",
+        "WhatsApp Image 2026-01-22 at 12.06.51 (1).jpeg",
+        "WhatsApp Image 2026-01-22 at 12.06.51.jpeg",
+        "WhatsApp Image 2026-01-22 at 12.06.52 (1).jpeg",
+        "WhatsApp Image 2026-01-22 at 12.06.52.jpeg",
+        "WhatsApp Image 2026-01-22 at 12.07.48 (1).jpeg",
+        "WhatsApp Image 2026-01-22 at 12.07.48 (2).jpeg",
+        "WhatsApp Image 2026-01-22 at 12.07.50.jpeg"
     ];
 
     function initGallery() {
         const container = document.getElementById('auto-gallery');
+        container.innerHTML = ""; // Clear container
         images.forEach(filename => {
             const card = document.createElement('div');
             card.className = 'media-card';
@@ -185,11 +198,12 @@
     }
 
     function showPage(id) {
-        document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-        document.getElementById(id).style.display = 'block';
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
         window.scrollTo(0,0);
     }
 
+    // Cursor Logic
     const cursor = document.querySelector('.cursor');
     const follower = document.querySelector('.cursor-follower');
     document.addEventListener('mousemove', e => {
